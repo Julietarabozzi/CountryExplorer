@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CountryRowView: View {
     let country: Country
+    @Environment(\.modelContext) private var modelContext
+    @Query private var favorites: [CountryFavorite]
+
+    private var isFavorite: Bool {
+        favorites.contains { $0.id == country.id }
+    }
 
     var body: some View {
         HStack(spacing: 12) {
@@ -35,12 +42,24 @@ struct CountryRowView: View {
 
             Spacer()
 
-            Image(systemName: "bookmark")
-                .foregroundColor(.blue)
+            Button(action: toggleFavorite) {
+                Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
+                    .foregroundColor(.blue)
+            }
+            .buttonStyle(.plain)
         }
         .padding()
         .background(Color.white)
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+    }
+
+    private func toggleFavorite() {
+        if let existing = favorites.first(where: { $0.id == country.id }) {
+            modelContext.delete(existing)
+        } else {
+            let favorite = CountryFavorite(from: country)
+            modelContext.insert(favorite)
+        }
     }
 }

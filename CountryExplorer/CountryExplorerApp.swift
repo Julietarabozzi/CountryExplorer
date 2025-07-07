@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct CountryExplorerApp: App {
@@ -16,7 +17,8 @@ struct CountryExplorerApp: App {
             TabBarView()
                 .environmentObject(languageManager)
                 .environment(\.locale, .init(identifier: languageManager.currentLanguage.rawValue))
-                .id(languageManager.currentLanguage) 
+                .id(languageManager.currentLanguage)
+                .modelContainer(for: CountryFavorite.self)
         }
     }
 }

@@ -6,14 +6,25 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoritesView: View {
+    @Query private var favorites: [CountryFavorite]
+
     var body: some View {
-        Text(String.savedTitle)
+        VStack(spacing: 12) {
+            SearchBar(placeholder: "Search", text: .constant(""))
+                .frame(maxHeight: 30)
+                .padding(.horizontal)
+
+            ScrollView {
+                LazyVStack(spacing: 12) {
+                    ForEach(favorites) { country in
+                        CountryRowView(country: Country(from: country))
+                        .padding(.horizontal)
+                    }
+                }
+            }
+        }
     }
-}
-
-
-#Preview {
-    FavoritesView()
 }
