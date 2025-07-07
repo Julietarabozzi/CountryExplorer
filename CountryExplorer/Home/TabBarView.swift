@@ -13,12 +13,12 @@ struct TabBarView: View {
             
             ContentView()
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
+                    Image.magnifyingglass
                     Text(String.favoriteTitle)
             }
             FavoritesView()
                 .tabItem {
-                    Image(systemName: "star")
+                    Image.star
                     Text(String.favoriteTitle)
                 }
         }
