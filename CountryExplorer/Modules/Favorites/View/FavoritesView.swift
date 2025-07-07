@@ -13,10 +13,6 @@ struct FavoritesView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            SearchBar(placeholder: "Search", text: .constant(""))
-                .frame(maxHeight: 30)
-                .padding(.horizontal)
-
             ScrollView {
                 LazyVStack(spacing: 12) {
                     ForEach(favorites) { country in

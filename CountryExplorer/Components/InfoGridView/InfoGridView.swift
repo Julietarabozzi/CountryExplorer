@@ -56,21 +56,3 @@ struct InfoGridView: View {
     }
 }
 
-struct InfoCard: View {
-    var title: String
-    var value: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.subheadline.bold())
-            Text(value)
-                .font(.subheadline)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 1)
-    }
-}
