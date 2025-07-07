@@ -24,6 +24,7 @@ extension String {
     static var leftDrive: String { "🚨left".localized }
     static var rightDrive: String { "🚨right".localized }
     static var coatOfArmsTitle: String { "🚨coat_of_arms".localized }
+    static var selectLanguajeTitle: String { "🚨selectLanguaje".localized }
 }
 
 extension String {

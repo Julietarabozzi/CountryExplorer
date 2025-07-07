@@ -21,7 +21,7 @@ struct LanguageSelectionView: View {
                             .foregroundColor(.black)
                         Spacer()
                         if lang == languageManager.currentLanguage {
-                            Image(systemName: "checkmark")
+                            Image.checkmark
                                 .foregroundColor(.black)
                         }
                     }
@@ -32,7 +32,7 @@ struct LanguageSelectionView: View {
                     }
                 }
             }
-            .navigationTitle("Select Language")
+            .navigationTitle(String.selectLanguajeTitle)
             .navigationBarTitleDisplayMode(.inline)
         }
     }

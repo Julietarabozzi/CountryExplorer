@@ -14,4 +14,5 @@ extension Image {
     static var globe: Image { Image(systemName: "globe") }
     static var bookmark: Image { Image(systemName: "bookmark") }
     static var bookmarkFill: Image { Image(systemName: "bookmark.fill") }
+    static var checkmark: Image { Image(systemName: "checkmark") }
 }
