@@ -11,5 +11,13 @@ struct Country: Identifiable, Hashable {
     var name: String
     var officialName: String
     var capital: String
+    var region: String
+    var subregion: String
+    var population: Int
+    var timezones: [String]
+    var languages: [String]
+    var currencies: [String]
+    var carSide: String
     var flagURL: String
+    var coatOfArmsURL: String
 }

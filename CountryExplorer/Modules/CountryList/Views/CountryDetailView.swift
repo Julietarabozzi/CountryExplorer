@@ -9,11 +9,39 @@ import Foundation
 import SwiftUI
 
 struct CountryDetailView: View {
-    let country: Country
+    @StateObject private var viewModel: CountryDetailViewModel
+
+    init(country: Country) {
+        _viewModel = StateObject(wrappedValue: CountryDetailViewModel(country: country))
+    }
 
     var body: some View {
-        Text("Detail for \(country.name)")
-            .font(.title)
-            .navigationTitle(country.name)
+        ScrollView {
+            VStack(spacing: 16) {
+                AsyncImage(url: URL(string: viewModel.country.flagURL)) { image in
+                    image.resizable().scaledToFit()
+                } placeholder: {
+                    Color.gray.opacity(0.2)
+                }
+                .frame(height: 150)
+
+                VStack(spacing: 4) {
+                    Text(viewModel.country.name)
+                        .font(.title2.bold())
+                    Text(viewModel.country.officialName)
+                        .font(.subheadline)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+
+                InfoGridView(viewModel: viewModel)
+
+                Spacer(minLength: 40)
+            }
+            .padding()
+        }
+        .navigationTitle(viewModel.country.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
