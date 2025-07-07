@@ -11,6 +11,7 @@ struct HomeView: View {
     @StateObject private var viewModel = CountryListViewModel()
     @EnvironmentObject var languageManager: LanguageManager
     @State private var isShowingLanguageSheet = false
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         VStack(spacing: 16) {
@@ -53,7 +54,9 @@ struct HomeView: View {
                 LazyVStack(spacing: 12) {
                     ForEach(viewModel.countries) { country in
                         CountryRowView(country: country)
-                            .padding(.horizontal)
+                            .onTapGesture {
+                                router.push(.countryDetail(country))
+                            }
                     }
                 }
                 .padding(.top)
