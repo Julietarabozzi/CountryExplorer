@@ -6,7 +6,10 @@
 //
 
 import Foundation
-struct Country : Identifiable {
+struct Country: Identifiable {
     var id: String
     var name: String
+    var officialName: String
+    var capital: String
+    var flagURL: String
 }

@@ -11,9 +11,9 @@ struct HomeView: View {
     @StateObject private var viewModel = CountryListViewModel()
     @EnvironmentObject var languageManager: LanguageManager
     @State private var isShowingLanguageSheet = false
-
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             HStack {
                 Button(action: {
                     isShowingLanguageSheet = true
@@ -25,21 +25,38 @@ struct HomeView: View {
                             .foregroundColor(.black)
                     }
                 }
-                .padding(.horizontal)
                 .sheet(isPresented: $isShowingLanguageSheet) {
                     LanguageSelectionView()
                         .environmentObject(languageManager)
                 }
-
+                
                 Spacer()
             }
+            .padding(.horizontal)
             .padding(.top)
+            
+            // Título centrado
+            HStack {
+                Spacer()
+                Text("Search")
+                    .font(.title3.bold())
+                Spacer()
+            }
+            
+            // Search bar
             SearchBar(placeholder: "Search Country", text: $viewModel.searchText)
                 .frame(maxHeight: 30)
                 .padding(.horizontal)
-
-            List(viewModel.countries) { country in
-                Text(country.name)
+            
+            // Lista de países
+            ScrollView {
+                LazyVStack(spacing: 12) {
+                    ForEach(viewModel.countries) { country in
+                        CountryRowView(country: country)
+                            .padding(.horizontal)
+                    }
+                }
+                .padding(.top)
             }
         }
     }
