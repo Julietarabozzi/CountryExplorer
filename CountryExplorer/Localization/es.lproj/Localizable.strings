@@ -8,3 +8,14 @@
 
 "🚨saved" = "Guardado";
 "🚨search" = "Buscar";
+//info card
+"🚨region" = "Región";
+"🚨subregion" = "Subregión";
+"🚨capital" = "Capital";
+"🚨timezones" = "Zona(s) horaria(s)";
+"🚨population" = "Población";
+"🚨languages" = "Idiomas";
+"🚨currencies" = "Monedas";
+"🚨carSide" = "Lado de conducción";
+"🚨left" = "IZQUIERDA";
+"🚨right" = "DERECHA";

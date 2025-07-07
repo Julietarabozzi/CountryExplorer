@@ -13,29 +13,37 @@ struct InfoGridView: View {
     var body: some View {
         VStack(spacing: .spacing16) {
             HStack(spacing: .spacing16) {
-                InfoCard(title: "Region", value: viewModel.country.region)
-                InfoCard(title: "Subregion", value: viewModel.country.subregion)
-                InfoCard(title: "Capital", value: viewModel.country.capital)
+                InfoCard(title: String.regionTitle, value: viewModel.country.region)
+                InfoCard(title: String.subregionTitle, value: viewModel.country.subregion)
+                InfoCard(title: String.capitalTitle, value: viewModel.country.capital)
             }
 
             HStack(spacing: .spacing16) {
-                InfoCard(title: "Timezone(s)", value: viewModel.joinedTimezones.joined(separator: "\n"))
-                InfoCard(title: "Population", value: viewModel.populationFormatted)
+                InfoCard(title: String.timezoneTitle, value: viewModel.joinedTimezones.joined(separator: "\n"))
+                InfoCard(title: String.populationTitle, value: viewModel.populationFormatted)
             }
 
             HStack(spacing: .spacing16) {
-                InfoCard(title: "Languages", value: viewModel.joinedLanguages)
-                InfoCard(title: "Currencies", value: viewModel.joinedCurrencies)
+                InfoCard(title: String.languagesTitle, value: viewModel.joinedLanguages)
+                InfoCard(title: String.currenciesTitle, value: viewModel.joinedCurrencies)
             }
 
             HStack(spacing: .spacing16) {
                 VStack(alignment: .leading, spacing: .spacing8) {
-                    Text("Car Drive Side")
+                    Text(String.carSideTitle)
                         .font(.headline)
                     HStack {
-                        Label("LEFT", systemImage: "car.fill")
+                        Label {
+                            Text(String.leftDrive)
+                        } icon: {
+                            Image.carFill
+                        }
                             .opacity(viewModel.isRightHandDriving ? .percentage20 : .percentage100)
-                        Label("RIGHT", systemImage: "car.fill")
+                        Label {
+                            Text(String.rightDrive)
+                        } icon: {
+                            Image.carFill
+                        }
                             .opacity(viewModel.isRightHandDriving ? .percentage100 : .percentage20)
                     }
                 }

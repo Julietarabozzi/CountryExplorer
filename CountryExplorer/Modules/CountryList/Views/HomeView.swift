@@ -14,13 +14,13 @@ struct HomeView: View {
     @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: .spacing16) {
             HStack {
                 Button(action: {
                     isShowingLanguageSheet = true
                 }) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "globe")
+                    HStack(spacing: .spacing8) {
+                        Image.globe
                             .foregroundColor(.black)
                         Text(languageManager.currentLanguage.title)
                             .foregroundColor(.black)
@@ -36,22 +36,19 @@ struct HomeView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            // Título centrado
             HStack {
                 Spacer()
                 Text(String.searchTitle)
                     .font(.title3.bold())
                 Spacer()
             }
-            
-            // Search bar
+
             SearchBar(placeholder: String.searchTitle, text: $viewModel.searchText)
-                .frame(maxHeight: 30)
+                .frame(maxHeight: .height30)
                 .padding(.horizontal)
             
-            // Lista de países
             ScrollView {
-                LazyVStack(spacing: 12) {
+                LazyVStack(spacing: .spacing16) {
                     ForEach(viewModel.countries) { country in
                         CountryRowView(country: country)
                             .onTapGesture {

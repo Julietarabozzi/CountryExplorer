@@ -12,11 +12,11 @@ struct SearchBar: View {
     @Binding var text: String
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 8)
+        RoundedRectangle(cornerRadius: .cornerRadius12)
             .fill(Color(.systemGray6))
             .overlay(
                 HStack {
-                    Image(systemName: "magnifyingglass")
+                    Image.magnifyingglass
                         .foregroundColor(.gray)
                     TextField(placeholder, text: $text)
                 }

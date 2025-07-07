@@ -12,9 +12,9 @@ struct FavoritesView: View {
     @Query private var favorites: [CountryFavorite]
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: .spacing16) {
             ScrollView {
-                LazyVStack(spacing: 12) {
+                LazyVStack(spacing: .spacing16) {
                     ForEach(favorites) { country in
                         CountryRowView(country: Country(from: country))
                         .padding(.horizontal)

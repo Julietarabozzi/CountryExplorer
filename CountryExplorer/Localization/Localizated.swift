@@ -11,6 +11,18 @@ import Foundation
 extension String {
     static var savedTitle: String { "🚨saved".localized }
     static var searchTitle: String { "🚨search".localized }
+    
+    //info card
+    static var regionTitle: String { "🚨region".localized }
+    static var subregionTitle: String { "🚨subregion".localized }
+    static var capitalTitle: String { "🚨capital".localized }
+    static var timezoneTitle: String { "🚨timezones".localized }
+    static var populationTitle: String { "🚨population".localized }
+    static var languagesTitle: String { "🚨languages".localized }
+    static var currenciesTitle: String { "🚨currencies".localized }
+    static var carSideTitle: String { "🚨carSide".localized }
+    static var leftDrive: String { "🚨left".localized }
+    static var rightDrive: String { "🚨right".localized }
 }
 
 extension String {

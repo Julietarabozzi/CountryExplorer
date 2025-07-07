@@ -13,7 +13,7 @@ struct InfoCard: View {
     var value: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: .spacing4) {
             Text(title)
                 .font(.subheadline.bold())
             Text(value)
@@ -22,7 +22,7 @@ struct InfoCard: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 1)
+        .cornerRadius(.cornerRadius20)
+        .shadow(radius: .cornerRadius2)
     }
 }

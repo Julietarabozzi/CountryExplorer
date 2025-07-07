@@ -17,11 +17,11 @@ struct CountryDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 50) {
+            VStack(spacing: .spacing50) {
 
                 header
                 InfoGridView(viewModel: viewModel)
-                Spacer(minLength: 40)
+                Spacer(minLength: .cgFloat40)
             }
             .padding()
         }
@@ -36,14 +36,14 @@ struct CountryDetailView: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 180)
+                    .frame(height: .height180)
                     .clipped()
             } placeholder: {
-                Color.gray.opacity(0.2)
-                    .frame(height: 180)
+                Color.gray.opacity(.percentage20)
+                    .frame(height: .height180)
             }
 
-            VStack(spacing: 4) {
+            VStack(spacing: .spacing4) {
                 Text(viewModel.country.name)
                     .font(.title3.bold())
                 Text(viewModel.country.officialName)
@@ -51,11 +51,11 @@ struct CountryDetailView: View {
             }
             .padding()
             .background(Color(.systemGray6))
-            .cornerRadius(12)
-            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-            .offset(y: 30)
+            .cornerRadius(.cornerRadius12)
+            .shadow(color: .black.opacity(.percentage20), radius: .cgFloat4, x: .zero, y: .cgFloat2)
+            .offset(y: .cgFloat40)
             .padding(.horizontal)
         }
-        .padding(.bottom, 20)
+        .padding(.bottom)
     }
 }

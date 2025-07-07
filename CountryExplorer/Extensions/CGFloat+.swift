@@ -35,7 +35,9 @@ extension CGFloat {
     // Corner Radius
     static let cornerRadius0: CGFloat = 0
     static let cornerRadius2: CGFloat = 2
+    static let cornerRadius4: CGFloat = 4
     static let cornerRadius12: CGFloat = 12
+    static let cornerRadius20: CGFloat = 20
     static let cornerRadius40: CGFloat = 40
 
     // Frame Widths
@@ -43,12 +45,15 @@ extension CGFloat {
     static let width10: CGFloat = 10
     static let width12: CGFloat = 12
     static let width20: CGFloat = 20
+    static let width50: CGFloat = 50
 
     // Frame Heights
     static let height1: CGFloat = 1
     static let height2: CGFloat = 2
     static let height5: CGFloat = 5
     static let height10: CGFloat = 10
+    static let height30: CGFloat = 30
+    static let height35: CGFloat = 35
     static let height180: CGFloat = 180
 
     // Spacing
@@ -56,13 +61,14 @@ extension CGFloat {
     static let spacing4: CGFloat = 4
     static let spacing8: CGFloat = 8
     static let spacing16: CGFloat = 16
-
+    static let spacing50: CGFloat = 50
     // Float constants
     static let cgFloat1: CGFloat = 1
     static let cgFloat2: CGFloat = 2
     static let cgFloat4: CGFloat = 4
     static let cgFloat5: CGFloat = 5
     static let cgFloat6: CGFloat = 6
+    static let cgFloat40: CGFloat = 40
 
     // Percentage constant
     static let percentage00: CGFloat = 0.0

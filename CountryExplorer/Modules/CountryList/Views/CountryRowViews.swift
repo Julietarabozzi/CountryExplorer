@@ -18,18 +18,18 @@ struct CountryRowView: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: .spacing16) {
             AsyncImage(url: URL(string: country.flagURL)) { image in
                 image
                     .resizable()
                     .scaledToFit()
             } placeholder: {
-                Color.gray.opacity(0.3)
+                Color.gray.opacity(.percentage20)
             }
-            .frame(width: 50, height: 35)
-            .cornerRadius(4)
+            .frame(width: .width50, height: .height35)
+            .cornerRadius(.cornerRadius2)
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: .spacing4) {
                 Text(country.name)
                     .font(.headline)
                 Text(country.officialName)
@@ -43,15 +43,16 @@ struct CountryRowView: View {
             Spacer()
 
             Button(action: toggleFavorite) {
-                Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
+                (isFavorite ? Image.bookmark : Image.bookmarkFill)
+                    .foregroundColor(.blue)
                     .foregroundColor(.blue)
             }
             .buttonStyle(.plain)
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+        .cornerRadius(.cornerRadius12)
+        .shadow(color: Color.black.opacity(.percentage20), radius: .cornerRadius4, x: .zero, y: .cgFloat2)
     }
 
     private func toggleFavorite() {
