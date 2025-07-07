@@ -22,7 +22,7 @@ struct InfoCard: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .background(Color.white)
-        .cornerRadius(.cornerRadius20)
+        .cornerRadius(.cornerRadius4)
         .shadow(radius: .cornerRadius2)
     }
 }

@@ -12,12 +12,12 @@ struct InfoGridView: View {
 
     var body: some View {
         VStack(spacing: .spacing16) {
-            HStack(spacing: .spacing16) {
-                InfoCard(title: String.regionTitle, value: viewModel.country.region)
-                InfoCard(title: String.subregionTitle, value: viewModel.country.subregion)
-                InfoCard(title: String.capitalTitle, value: viewModel.country.capital)
-            }
-
+            RegionInfoRowView(
+                region: viewModel.country.region,
+                subregion: viewModel.country.subregion,
+                capital: viewModel.country.capital
+            )
+            
             HStack(spacing: .spacing16) {
                 InfoCard(title: String.timezoneTitle, value: viewModel.joinedTimezones.joined(separator: "\n"))
                 InfoCard(title: String.populationTitle, value: viewModel.populationFormatted)
@@ -50,7 +50,7 @@ struct InfoGridView: View {
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.white)
-                .cornerRadius(.cornerRadius12)
+                .cornerRadius(.cornerRadius4)
                 .shadow(radius: .cgFloat1)
 
                 AsyncImage(url: URL(string: viewModel.country.coatOfArmsURL)) { image in

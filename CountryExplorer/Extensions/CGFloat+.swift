@@ -54,6 +54,7 @@ extension CGFloat {
     static let height10: CGFloat = 10
     static let height30: CGFloat = 30
     static let height35: CGFloat = 35
+    static let height40: CGFloat = 40
     static let height180: CGFloat = 180
 
     // Spacing
