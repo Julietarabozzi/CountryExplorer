@@ -12,7 +12,7 @@ struct CoatOfArmsCardView: View {
     let imageURL: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: .spacing8) {
+        VStack(alignment: .center) {
             Text(String.coatOfArmsTitle)
                 .font(.subheadline.bold())
 

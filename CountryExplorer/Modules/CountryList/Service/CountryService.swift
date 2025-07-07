@@ -20,7 +20,21 @@ class CountryService: CountryServiceProtocol {
     }
 
     func fetchCountries() async throws -> [Country] {
-        let dto = try await networkService.fetch(CountryAPI.allCountries(fields: ["name", "capital", "flags", "cca3"]), as: [CountryDTO].self)
+        let dto = try await networkService.fetch(
+            CountryAPI.allCountries(fields: [
+                "name",
+                "capital",
+                "flags",
+                "coatOfArms",     
+                "cca3",
+                "region",
+                "subregion",
+                "timezones",
+                "languages",
+                "currencies"
+            ]),
+            as: [CountryDTO].self
+        )
         return dto.compactMap { $0.toDomain() }
     }
 }
