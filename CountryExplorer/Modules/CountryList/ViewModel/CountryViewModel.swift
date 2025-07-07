@@ -37,7 +37,7 @@ class CountryListViewModel: ObservableObject {
     }
 
     private func filterCountries() {
-        if searchText.isEmpty {
+        if searchText.count < 2 {
             countries = allCountries
         } else {
             countries = allCountries.filter {
