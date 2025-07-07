@@ -30,8 +30,8 @@ final class LanguageManager: ObservableObject {
 
         var title: String {
             switch self {
-            case .english: "English"
-            case .spanish: "Español"
+            case .english: "EN"
+            case .spanish: "ES"
             }
         }
     }

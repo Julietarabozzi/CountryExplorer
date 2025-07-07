@@ -11,7 +11,7 @@ struct TabBarView: View {
     var body: some View {
         TabView() {
             
-            ContentView()
+            HomeView()
                 .tabItem {
                     Image.magnifyingglass
                     Text(String.favoriteTitle)
