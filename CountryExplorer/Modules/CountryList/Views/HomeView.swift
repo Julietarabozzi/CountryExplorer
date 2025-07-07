@@ -38,13 +38,13 @@ struct HomeView: View {
             // Título centrado
             HStack {
                 Spacer()
-                Text("Search")
+                Text(String.searchTitle)
                     .font(.title3.bold())
                 Spacer()
             }
             
             // Search bar
-            SearchBar(placeholder: "Search Country", text: $viewModel.searchText)
+            SearchBar(placeholder: String.searchTitle, text: $viewModel.searchText)
                 .frame(maxHeight: 30)
                 .padding(.horizontal)
             

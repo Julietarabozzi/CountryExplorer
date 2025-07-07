@@ -9,9 +9,11 @@ import Foundation
 import Foundation
 
 extension String {
-    static var favoriteTitle: String { "🚨favorite".localized }
+    static var savedTitle: String { "🚨saved".localized }
+    static var searchTitle: String { "🚨search".localized }
+}
 
-    
+extension String {
     var localized: String {
         let languageCode = LanguageManager.shared.currentLanguage.rawValue
         

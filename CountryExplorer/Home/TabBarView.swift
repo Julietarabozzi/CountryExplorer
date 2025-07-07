@@ -8,18 +8,29 @@
 import SwiftUI
 
 struct TabBarView: View {
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.systemGray6
+        appearance.stackedLayoutAppearance.selected.iconColor = .systemBlue
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+
     var body: some View {
-        TabView() {
-            
+        TabView {
             HomeView()
                 .tabItem {
                     Image.magnifyingglass
-                    Text(String.favoriteTitle)
-            }
+                    Text(String.searchTitle)
+                }
+
             FavoritesView()
                 .tabItem {
                     Image.star
-                    Text(String.favoriteTitle)
+                    Text(String.savedTitle)
                 }
         }
     }

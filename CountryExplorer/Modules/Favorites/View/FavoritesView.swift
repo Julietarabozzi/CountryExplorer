@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     var body: some View {
-        Text(String.favoriteTitle)
+        Text(String.savedTitle)
     }
 }
 
