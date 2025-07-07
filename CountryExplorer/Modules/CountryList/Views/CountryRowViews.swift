@@ -43,8 +43,7 @@ struct CountryRowView: View {
             Spacer()
 
             Button(action: toggleFavorite) {
-                (isFavorite ? Image.bookmark : Image.bookmarkFill)
-                    .foregroundColor(.blue)
+                (isFavorite ? Image.bookmarkFill : Image.bookmark)
                     .foregroundColor(.blue)
             }
             .buttonStyle(.plain)
