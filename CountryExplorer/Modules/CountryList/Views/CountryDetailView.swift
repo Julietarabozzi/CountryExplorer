@@ -25,7 +25,6 @@ struct CountryDetailView: View {
             }
             .padding()
         }
-        .navigationTitle(viewModel.country.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 

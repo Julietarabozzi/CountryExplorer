@@ -19,7 +19,8 @@ struct InfoCard: View {
             Text(value)
                 .font(.subheadline)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxHeight: .height40)
+        .frame(maxWidth: .infinity)
         .padding()
         .background(Color.white)
         .cornerRadius(.cornerRadius4)

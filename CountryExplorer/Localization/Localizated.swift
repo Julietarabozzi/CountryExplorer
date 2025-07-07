@@ -23,6 +23,7 @@ extension String {
     static var carSideTitle: String { "🚨carSide".localized }
     static var leftDrive: String { "🚨left".localized }
     static var rightDrive: String { "🚨right".localized }
+    static var coatOfArmsTitle: String { "🚨coat_of_arms".localized }
 }
 
 extension String {

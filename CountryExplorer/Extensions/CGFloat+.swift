@@ -31,7 +31,8 @@ extension CGFloat {
     static let size16: CGFloat = 16
     static let size20: CGFloat = 20
     static let size80: CGFloat = 80
-
+    static let size40: CGFloat = 40
+    
     // Corner Radius
     static let cornerRadius0: CGFloat = 0
     static let cornerRadius2: CGFloat = 2
