@@ -53,11 +53,6 @@
 			path = CountryExplorerTests;
 			sourceTree = "<group>";
 		};
-		9E200A842E19E86300EBFDF7 /* CountryExplorerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CountryExplorerUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				9E200A6B2E19E86200EBFDF7 /* CountryExplorer */,
 				9E200A7A2E19E86300EBFDF7 /* CountryExplorerTests */,
-				9E200A842E19E86300EBFDF7 /* CountryExplorerUITests */,
 				9E200A6A2E19E86200EBFDF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				9E200A832E19E86300EBFDF7 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				9E200A842E19E86300EBFDF7 /* CountryExplorerUITests */,
 			);
 			name = CountryExplorerUITests;
 			packageProductDependencies = (

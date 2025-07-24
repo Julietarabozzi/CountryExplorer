@@ -59,5 +59,8 @@ struct HomeView: View {
                 .padding(.top)
             }
         }
+        .task {
+            await viewModel.fetchCountries()
+        }
     }
 }

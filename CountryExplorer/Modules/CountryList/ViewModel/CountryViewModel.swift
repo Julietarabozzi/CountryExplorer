@@ -20,13 +20,10 @@ class CountryListViewModel: ObservableObject {
 
     init(service: CountryServiceProtocol = CountryService()) {
         self.service = service
-        Task {
-            await fetchCountries()
-        }
     }
 
     @MainActor
-    private func fetchCountries() async {
+    func fetchCountries() async {
         do {
             let fetched = try await service.fetchCountries()
             self.allCountries = fetched
