@@ -10,6 +10,7 @@ import XCTest
 
 final class CountryListViewModelTests: XCTestCase {
 
+    // Mock básico
     class MockCountryService: CountryServiceProtocol {
         var countriesToReturn: [Country] = []
         var fetchCalled = false
@@ -20,6 +21,7 @@ final class CountryListViewModelTests: XCTestCase {
         }
     }
 
+    // Obtener los países
     func test_fetchCountries_populatesCountries() async {
         // Given
         let mockService = MockCountryService()
@@ -38,6 +40,7 @@ final class CountryListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.countries.first?.name, "Argentina")
     }
 
+    // Filtrar
     func test_filterCountries_filtersBySearchText() async {
         // Given
         let mockService = MockCountryService()
@@ -55,5 +58,58 @@ final class CountryListViewModelTests: XCTestCase {
         // Then
         XCTAssertEqual(viewModel.countries.count, 1)
         XCTAssertEqual(viewModel.countries.first?.name, "Brazil")
+    }
+
+    // mayúsculas/minúsculas
+    func test_filterCountries_isCaseInsensitive() async {
+        // Given
+        let mockService = MockCountryService()
+        mockService.countriesToReturn = [
+            Country(id: "ARG", name: "Argentina", officialName: "", capital: "", region: "", subregion: "", population: 0, timezones: [], languages: [], currencies: [], carSide: "", flagURL: "", coatOfArmsURL: "")
+        ]
+        let viewModel = CountryListViewModel(service: mockService)
+
+        // When
+        await viewModel.fetchCountries()
+        viewModel.searchText = "arGe"
+
+        // Then
+        XCTAssertEqual(viewModel.countries.count, 1)
+        XCTAssertEqual(viewModel.countries.first?.name, "Argentina")
+    }
+
+    // No aplicar filtradado si char<2
+    func test_filterCountries_doesNotFilterWhenSearchTextIsShort() async {
+        // Given
+        let mockService = MockCountryService()
+        mockService.countriesToReturn = [
+            Country(id: "ARG", name: "Argentina", officialName: "", capital: "", region: "", subregion: "", population: 0, timezones: [], languages: [], currencies: [], carSide: "", flagURL: "", coatOfArmsURL: ""),
+            Country(id: "BRA", name: "Brazil", officialName: "", capital: "", region: "", subregion: "", population: 0, timezones: [], languages: [], currencies: [], carSide: "", flagURL: "", coatOfArmsURL: "")
+        ]
+        let viewModel = CountryListViewModel(service: mockService)
+
+        // When
+        await viewModel.fetchCountries()
+        viewModel.searchText = "b" // menos de 2 caracteres
+
+        // Then
+        XCTAssertEqual(viewModel.countries.count, 2)
+    }
+
+    // Si el servicio lanza un error, no crashee
+    func test_fetchCountries_handlesErrorGracefully() async {
+        // Given
+        class FailingMockService: CountryServiceProtocol {
+            func fetchCountries() async throws -> [Country] {
+                throw URLError(.notConnectedToInternet)
+            }
+        }
+        let viewModel = CountryListViewModel(service: FailingMockService())
+
+        // When
+        await viewModel.fetchCountries()
+
+        // Then
+        XCTAssertEqual(viewModel.countries, [])
     }
 }
