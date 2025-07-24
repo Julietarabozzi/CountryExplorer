@@ -22,22 +22,3 @@ struct Country: Identifiable, Hashable {
     var coatOfArmsURL: String
 }
 
-extension Country {
-    init(from favorite: CountryFavorite) {
-        self.init(
-            id: favorite.id,
-            name: favorite.name,
-            officialName: favorite.officialName,
-            capital: favorite.capital,
-            region: favorite.region,
-            subregion: favorite.subregion,
-            population: favorite.population,
-            timezones: favorite.timezones,
-            languages: favorite.languages,
-            currencies: favorite.currencies,
-            carSide: favorite.carSide,
-            flagURL: favorite.flagURL,
-            coatOfArmsURL: favorite.coatOfArmsURL
-        )
-    }
-}

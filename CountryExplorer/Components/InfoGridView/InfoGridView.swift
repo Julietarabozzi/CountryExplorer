@@ -8,29 +8,41 @@
 import SwiftUI
 
 struct InfoGridView: View {
-    let viewModel: CountryDetailViewModel
+    let country: Country
 
     var body: some View {
         VStack(spacing: .spacing16) {
             RegionInfoRowView(
-                region: viewModel.country.region,
-                subregion: viewModel.country.subregion,
-                capital: viewModel.country.capital
+                region: country.region,
+                subregion: country.subregion,
+                capital: country.capital
             )
 
             HStack(spacing: .spacing16) {
-                InfoCard(title: String.timezoneTitle, value: viewModel.joinedTimezones.joined(separator: "\n"))
-                InfoCard(title: String.populationTitle, value: viewModel.populationFormatted)
+                InfoCard(
+                    title: String.timezoneTitle,
+                    value: country.joinedTimezones 
+                )
+                InfoCard(
+                    title: String.populationTitle,
+                    value: country.populationFormatted
+                )
             }
 
             HStack(spacing: .spacing16) {
-                InfoCard(title: String.languagesTitle, value: viewModel.joinedLanguages)
-                InfoCard(title: String.currenciesTitle, value: viewModel.joinedCurrencies)
+                InfoCard(
+                    title: String.languagesTitle,
+                    value: country.joinedLanguages
+                )
+                InfoCard(
+                    title: String.currenciesTitle,
+                    value: country.joinedCurrencies
+                )
             }
 
             HStack(spacing: .spacing16) {
-                DriveSideCardView(isRightHandDriving: viewModel.isRightHandDriving)
-                CoatOfArmsCardView(imageURL: viewModel.country.coatOfArmsURL)
+                DriveSideCardView(isRightHandDriving: country.isRightHandDriving)
+                CoatOfArmsCardView(imageURL: country.coatOfArmsURL)
             }
         }
     }

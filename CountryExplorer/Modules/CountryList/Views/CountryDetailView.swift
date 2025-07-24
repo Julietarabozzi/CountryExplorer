@@ -9,18 +9,13 @@ import Foundation
 import SwiftUI
 
 struct CountryDetailView: View {
-    @StateObject private var viewModel: CountryDetailViewModel
-
-    init(country: Country) {
-        _viewModel = StateObject(wrappedValue: CountryDetailViewModel(country: country))
-    }
+    let country: Country
 
     var body: some View {
         ScrollView {
             VStack(spacing: .spacing50) {
-
                 header
-                InfoGridView(viewModel: viewModel)
+                InfoGridView(country: country)
                 Spacer(minLength: .cgFloat40)
             }
             .padding()
@@ -31,7 +26,7 @@ struct CountryDetailView: View {
     @ViewBuilder
     var header: some View {
         ZStack(alignment: .bottomLeading) {
-            AsyncImage(url: URL(string: viewModel.country.flagURL)) { image in
+            AsyncImage(url: URL(string: country.flagURL)) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -43,9 +38,9 @@ struct CountryDetailView: View {
             }
 
             VStack(spacing: .spacing4) {
-                Text(viewModel.country.name)
+                Text(country.name)
                     .font(.title3.bold())
-                Text(viewModel.country.officialName)
+                Text(country.officialName)
                     .font(.subheadline)
             }
             .padding()
